@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+
+    <form action="{{ path_for('rent.remove-car') }}" method="POST" style="width:40vw;margin:0 auto;text-align:center;">
+      <div class="panel panel-primary">
+       <div class="panel-heading ">Remove a car</div>
+       <div class="panel-body">
+  <div class="form-group">
+     <label for="car">Car:</label>
+   <select class="form-control" name='car'>
+     {% for car in cars %}
+     <option value="{{ car.id }}">{{ car.make }},{{ car.model }},{{ car.year }}</option>
+     {% endfor %}
+</select>
+  
+  
+  <button type="submit" class="btn btn-default" >Remove the car!</button>
+{{ csrf.field | raw }}
+    </div>
+    </div>
+</form>
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% endblock %}
+
+

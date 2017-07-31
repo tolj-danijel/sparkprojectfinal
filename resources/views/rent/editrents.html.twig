@@ -1,0 +1,46 @@
+ {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+  <form action="{{ path_for('rent.editrentdata') }}" method="GET" style="text-align:center;">  
+
+  <table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Username</th>    
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>    
+      <th>Rented date</th>
+      <th>Returned date</th>
+      <th>Price</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for rent in rents %}
+      <tr>
+      <td>{{ rent.username }}</td>
+      <td>{{ rent.make }}</td>
+      <td>{{ rent.model }}</td>
+      <td>{{ rent.year }}</td>
+      <td>{{ rent.date_rented }}</td>
+      <td>{{ rent.date_returned }}</td>
+      <td>{{ rent.price }}</td>
+      <td><input type="radio" value="{{ rent.rent_number }}" name="rent_number" ></td>
+    </tr>
+  {% endfor %}
+ <button type="submit" class="btn btn-primary" >Edit the rent!</button>
+{{ csrf.field | raw }}
+  
+</form>
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% endblock %}
+
+

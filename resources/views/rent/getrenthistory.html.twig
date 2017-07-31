@@ -1,0 +1,41 @@
+ {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+  <table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Username</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>    
+      <th>Rented date</th>
+      <th>Returned date</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for rent in rents %}
+      <tr>
+      <td>{{ rent.username }}</td>      
+      <td>{{ rent.make }}</td>
+      <td>{{ rent.model }}</td>
+      <td>{{ rent.year }}</td>
+      <td>{{ rent.date_rented }}</td>
+      <td>{{ rent.date_returned }}</td>
+      <td>{{ rent.price }}</td>
+    </tr>
+  {% endfor %}
+</tbody>
+
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% endblock %}
+
+

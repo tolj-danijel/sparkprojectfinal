@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+
+    <form action="{{ path_for('rent.addcar') }}" method="POST" style="width:40vw;margin:0 auto;text-align:center;">
+      <div class="panel panel-primary">
+       <div class="panel-heading ">Add a car</div>
+       <div class="panel-body">
+  <div class="form-group{{ errors.make ? ' has-error' : '' }}">
+    <label for="make">Make:</label>
+    <input type="text" class="form-control" id="make" name="make" value="{{ old.make }}">
+    {% if errors.make %}
+    <span class='help-block'> {{ errors.make | first }}
+    {% endif %}
+  </div>  
+  <div class="form-group{{ errors.model ? ' has-error' : ''}}">
+    <label for="model">Model:</label>
+    <input type="text" class="form-control" id="model" name="model">
+    {% if errors.model %}
+    <span class='help-block'> {{ errors.model | first }}
+    {% endif %}
+  </div>
+  <div class="form-group{{ errors.year ? ' has-error' : ''}}">
+    <label for="year">Year:</label>
+    <input type="text" class="form-control" id="year" name="year">
+    {% if errors.year %}
+    <span class='help-block'> {{ errors.year | first }}
+    {% endif %}
+  </div>
+  <button type="submit" class="btn btn-default" >Add the car!</button>
+{{ csrf.field | raw }}
+    </div>
+    </div>
+</form>
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% endblock %}
+
+

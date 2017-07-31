@@ -1,0 +1,34 @@
+<html>
+    <head>
+
+        {% block stylesheets %}
+        
+        {% endblock %}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+    </head>
+    <body>
+      {% if auth.check %}
+          {% include 'partials/toolbaruser.html.twig' %}
+      {% else %}
+          {% include 'partials/landing.html.twig' %}
+      {% endif %}
+        
+        {% include 'partials/flash.html.twig' %}
+        
+        {% block body %}
+        {% endblock %}
+
+        
+<script
+  src="http://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+  
+        {% block javascripts %}
+        {% endblock %}
+            
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    </body>
+</html>

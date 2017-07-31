@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+
+    <form action="{{ path_for('rent.editrents') }}" method="POST" style="width:40vw;margin:0 auto;text-align:center;">
+    <input type="hidden" value="{{ rent.rent_number }}" name="rent_number">
+      <div class="panel panel-primary">
+       <div class="panel-heading ">Add a rent</div>
+       <div class="panel-body">
+  <div class="form-group">
+     <label for="user">Date rented: </label>
+  <div class="form-group">
+  <label for="date">Date:</label>
+  <input type="date" class="form-control" name="date_rented" value="{{ rent.date_rented }}">
+</div>
+
+ <div class="form-group">
+  <label for="date">Date returned:</label>
+  <input type="date" class="form-control" name="date_returned" value="{{ rent.date_returned }}">
+</div>
+ <div class="form-group">
+  <label for="price">Total cost of renting:</label>
+  <input type="number" class="form-control" name="price">
+</div>
+ <div class="form-group">
+  <label for="return">Return the car</label>
+  <input type="checkbox" class="form-control" name="return">
+</div>
+  <button type="submit" class="btn btn-primary" >Edit the rent!</button>
+{{ csrf.field | raw }}
+    </div>
+    </div>
+</form>
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% endblock %}
+
+

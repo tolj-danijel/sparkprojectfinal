@@ -1,0 +1,9 @@
+        {% if not auth.ifadmin %}
+           {% include 'partials/regularusertoolbar.html.twig' %}
+        {% endif %}
+
+        {% if auth.ifadmin %}
+        
+          {% include 'partials/admintoolbar.html.twig' %}
+        
+        {% endif %}
